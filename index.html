@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mockup ERP Omantel</title>
+<style>
+:root{
+  --bg:#f4f6f9; --panel:#ffffff; --ink:#1d2433; --muted:#64708a; --line:#e2e7ef;
+  --brand:#0b5394; --brand-2:#0f6fc6; --accent:#c74634; --ok:#1e8e5a; --warn:#d48a00; --bad:#c0392b;
+  --side:#13233f; --side-ink:#c9d4e8; --chip:#eef3fb;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%}
+body{font-family:"Segoe UI",Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);font-size:14px}
+a{color:inherit;text-decoration:none}
+
+/* ---------- LOGIN ---------- */
+#login{min-height:100vh;display:grid;grid-template-columns:1.1fr 1fr}
+.login-hero{background:linear-gradient(140deg,#0b2a55 0%,#0b5394 60%,#1b7fd6 100%);color:#fff;padding:56px;display:flex;flex-direction:column;justify-content:space-between}
+.login-hero h1{font-size:34px;margin:0 0 12px;line-height:1.2}
+.login-hero p{opacity:.85;max-width:460px;line-height:1.6}
+.hero-list{list-style:none;padding:0;margin:24px 0 0}
+.hero-list li{padding:8px 0;border-bottom:1px solid rgba(255,255,255,.15);display:flex;gap:10px;align-items:center}
+.hero-list li span{width:22px;height:22px;border-radius:50%;background:rgba(255,255,255,.18);display:inline-grid;place-items:center;font-size:12px}
+.login-box{display:flex;align-items:center;justify-content:center;padding:40px}
+.card-login{width:400px;background:#fff;border:1px solid var(--line);border-radius:14px;padding:32px;box-shadow:0 10px 30px rgba(15,40,80,.08)}
+.logo{display:flex;align-items:center;gap:10px;font-weight:700;font-size:18px}
+.logo .mark{width:34px;height:34px;border-radius:8px;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800}
+label{display:block;font-size:12px;font-weight:600;color:var(--muted);margin:14px 0 6px}
+input,select,textarea{width:100%;padding:10px 12px;border:1px solid #cfd7e4;border-radius:8px;font:inherit;background:#fff}
+.btn{display:inline-flex;align-items:center;gap:6px;border:0;border-radius:8px;padding:10px 16px;font:inherit;font-weight:600;cursor:pointer;background:var(--brand);color:#fff}
+.btn.block{width:100%;justify-content:center;margin-top:18px}
+.btn.ghost{background:#fff;color:var(--brand);border:1px solid #c9d7ea}
+.btn.danger{background:var(--bad)}
+.btn.sm{padding:6px 10px;font-size:12px}
+.otp{display:flex;gap:8px}
+.otp input{text-align:center;font-size:18px;font-weight:700;padding:10px 0}
+.legal{font-size:11px;color:var(--muted);line-height:1.5;background:#fbf6ea;border:1px solid #f0e2bf;border-radius:8px;padding:10px;margin-top:16px}
+.hint{font-size:11px;color:var(--muted);margin-top:6px}
+
+/* ---------- APP SHELL ---------- */
+#app{display:grid;grid-template-columns:240px 1fr;min-height:100vh}
+aside{background:var(--side);color:var(--side-ink);padding:18px 14px;display:flex;flex-direction:column}
+aside .logo{color:#fff;margin:4px 6px 22px}
+aside .logo .mark{background:var(--accent)}
+.nav a{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:8px;margin-bottom:2px;font-size:13.5px}
+.nav a:hover{background:rgba(255,255,255,.06)}
+.nav a.active{background:var(--brand-2);color:#fff}
+.nav .ico{width:18px;text-align:center}
+.nav-sec{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;opacity:.55;margin:16px 12px 6px}
+.side-foot{margin-top:auto;font-size:11px;opacity:.7;padding:10px;border-top:1px solid rgba(255,255,255,.1)}
+main{display:flex;flex-direction:column;min-width:0}
+.topbar{height:60px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;padding:0 24px}
+.crumb{color:var(--muted);font-size:13px}
+.crumb b{color:var(--ink)}
+.top-right{display:flex;align-items:center;gap:16px}
+.search{width:280px;padding:8px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--muted);font-size:13px}
+.avatar{width:34px;height:34px;border-radius:50%;background:#dbe6f6;color:var(--brand);display:grid;place-items:center;font-weight:700}
+.user{display:flex;gap:10px;align-items:center;font-size:12.5px;line-height:1.25}
+.user small{color:var(--muted)}
+.session{font-size:11.5px;color:var(--muted);background:var(--chip);padding:5px 10px;border-radius:20px}
+.content{padding:24px;overflow:auto}
+.page-head{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:18px;gap:16px}
+.page-head h2{margin:0;font-size:22px}
+.page-head p{margin:4px 0 0;color:var(--muted)}
+.rf{display:inline-block;font-size:10.5px;font-weight:700;color:#7a3e00;background:#fff1d6;border:1px solid #f3d08a;padding:2px 7px;border-radius:5px;margin-left:6px;vertical-align:middle;letter-spacing:.02em}
+.owasp{color:#5a1a8a;background:#f3e8fd;border-color:#d9bdf3}
+body:has(#notes:not(:checked)) .rf{display:none}
+
+.grid{display:grid;gap:16px}
+.g4{grid-template-columns:repeat(4,1fr)}
+.g3{grid-template-columns:repeat(3,1fr)}
+.g2{grid-template-columns:1.4fr 1fr}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:18px}
+.card h3{margin:0 0 14px;font-size:15px;display:flex;align-items:center;justify-content:space-between}
+.kpi .label{color:var(--muted);font-size:12px}
+.kpi .val{font-size:28px;font-weight:700;margin:6px 0 4px}
+.kpi .delta{font-size:12px}
+.up{color:var(--ok)} .down{color:var(--bad)}
+.bar{height:8px;background:#e9eef5;border-radius:6px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--brand-2);border-radius:6px}
+
+table{width:100%;border-collapse:collapse;font-size:13px}
+th{text-align:left;font-size:11.5px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:600;padding:10px;border-bottom:1px solid var(--line);background:#fafbfd}
+td{padding:11px 10px;border-bottom:1px solid var(--line);vertical-align:middle}
+tr:hover td{background:#fafcff}
+.pill{display:inline-block;padding:3px 9px;border-radius:20px;font-size:11.5px;font-weight:600}
+.p-ok{background:#e3f5ec;color:var(--ok)} .p-warn{background:#fff3dc;color:#9a6400} .p-bad{background:#fde8e6;color:var(--bad)} .p-info{background:#e6f0fb;color:var(--brand)} .p-gray{background:#eef0f4;color:#566}
+.filters{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+.filters select,.filters input{width:auto;min-width:160px;padding:8px 10px;font-size:13px}
+
+.timeline{list-style:none;margin:0;padding:0}
+.timeline li{display:grid;grid-template-columns:22px 1fr auto;gap:10px;align-items:start;padding:8px 0}
+.dot{width:14px;height:14px;border-radius:50%;margin-top:3px;border:3px solid #cfd8e6;background:#fff}
+.dot.done{background:var(--ok);border-color:#bfe6d2}
+.dot.now{background:var(--warn);border-color:#f6dfaf}
+.timeline .t{font-weight:600;font-size:13px}
+.timeline .s{color:var(--muted);font-size:12px}
+.timeline .d{font-size:12px;color:var(--muted)}
+
+.cal{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;font-size:12px}
+.cal div{padding:8px 4px;text-align:center;border-radius:6px;background:#f6f8fb}
+.cal .h{background:none;color:var(--muted);font-weight:600}
+.cal .fz{background:#fde8e6;color:var(--bad);font-weight:700}
+.cal .mg{background:#e3f5ec;color:var(--ok);font-weight:700}
+.legend{display:flex;gap:14px;font-size:11.5px;color:var(--muted);margin-top:10px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+
+.steps{display:flex;gap:0;margin:6px 0 4px}
+.steps div{flex:1;text-align:center;font-size:11.5px;color:var(--muted);position:relative;padding-top:24px}
+.steps div:before{content:"";position:absolute;top:6px;left:50%;transform:translateX(-50%);width:14px;height:14px;border-radius:50%;background:#d6deea;z-index:1}
+.steps div:after{content:"";position:absolute;top:12px;left:0;right:0;height:2px;background:#d6deea}
+.steps div.ok:before{background:var(--ok)} .steps div.cur:before{background:var(--warn)}
+.steps div.ok{color:var(--ok);font-weight:600}.steps div.cur{color:#9a6400;font-weight:600}
+
+.alert{border-radius:10px;padding:12px 14px;font-size:13px;display:flex;gap:10px;align-items:flex-start;margin-bottom:16px}
+.alert.warn{background:#fff6e3;border:1px solid #f2d79c}
+.alert.info{background:#eaf2fc;border:1px solid #c6dbf4}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.mono{font-family:Consolas,"Courier New",monospace;font-size:12px}
+.toggle-notes{font-size:12px;color:var(--muted);display:flex;gap:6px;align-items:center;cursor:pointer}
+.toggle-notes input{width:auto}
+.donut{width:150px;height:150px;border-radius:50%;background:conic-gradient(var(--ok) 0 68%,var(--warn) 68% 85%,var(--bad) 85% 100%);display:grid;place-items:center;margin:4px auto}
+.donut span{width:96px;height:96px;border-radius:50%;background:#fff;display:grid;place-items:center;text-align:center;font-weight:700;font-size:22px;line-height:1.1}
+.donut small{font-size:11px;color:var(--muted);font-weight:400}
+.modal-back{position:fixed;inset:0;background:rgba(10,20,40,.45);display:grid;place-items:center;z-index:10}
+.modal{background:#fff;border-radius:14px;width:560px;padding:24px;box-shadow:0 20px 50px rgba(0,0,0,.25)}
+.modal h3{margin:0 0 4px}
+
+/* ---------- NAVEGACIÓN SOLO CON CSS (:target) ---------- */
+#login,#app,.view,.modal-back,#mfa,.c{display:none}
+:target{scroll-margin-top:100vh}
+body:not(:has(:target)) #login,#login:target,#login:has(:target){display:grid}
+#login:has(#mfa:target) #step1{display:none}
+#login:has(#mfa:target) #mfa{display:block}
+#app:has(:target),body:has(#modal:target) #app{display:grid}
+.view:target,body:has(#modal:target) #migracion{display:block}
+#modal:target{display:grid}
+body:has(#dashboard:target) .c-dashboard{display:inline}
+body:has(#dashboard:target) .nav a[href="#dashboard"]{background:var(--brand-2);color:#fff}
+body:has(#migracion:target, #modal:target) .c-migracion{display:inline}
+body:has(#migracion:target, #modal:target) .nav a[href="#migracion"]{background:var(--brand-2);color:#fff}
+body:has(#cambios:target) .c-cambios{display:inline}
+body:has(#cambios:target) .nav a[href="#cambios"]{background:var(--brand-2);color:#fff}
+body:has(#capacitacion:target) .c-capacitacion{display:inline}
+body:has(#capacitacion:target) .nav a[href="#capacitacion"]{background:var(--brand-2);color:#fff}
+body:has(#facturacion:target) .c-facturacion{display:inline}
+body:has(#facturacion:target) .nav a[href="#facturacion"]{background:var(--brand-2);color:#fff}
+body:has(#seguridad:target) .c-seguridad{display:inline}
+body:has(#seguridad:target) .nav a[href="#seguridad"]{background:var(--brand-2);color:#fff}
+</style>
+</head>
+<body>
+
+<!-- ================= LOGIN (RF-01) ================= -->
+<section id="login">
+  <div class="login-hero">
+    <div class="logo"><div class="mark" style="background:#fff;color:#0b5394">O</div> Omantel · Portal ERP</div>
+    <div>
+      <h1>Plataforma integrada de gestión<br>Oracle E-Business Suite</h1>
+      <p>Un único punto de acceso para Finanzas, Facturación, Clientes, Compras e Inventario, con seguimiento de la migración desde los sistemas heredados.</p>
+      <ul class="hero-list">
+        <li><span>✓</span> Base de datos única (Oracle Database) para todas las áreas</li>
+        <li><span>✓</span> Migración de clientes con plan de reversión (back-out)</li>
+        <li><span>✓</span> Control de cambios y trazabilidad completa</li>
+        <li><span>✓</span> Acceso seguro con doble factor de autenticación</li>
+      </ul>
+    </div>
+    <small style="opacity:.6">Prototipo académico · Solo uso ilustrativo</small>
+  </div>
+  <div class="login-box">
+    <div class="card-login">
+      <div class="logo"><div class="mark">O</div> Iniciar sesión <span class="rf">RF-01</span></div>
+      <p style="color:var(--muted);margin:8px 0 4px;font-size:13px">Ingresa con tu cuenta corporativa.</p>
+
+      <div id="step1">
+        <label>Usuario corporativo</label>
+        <input value="m.alharthy" autocomplete="username">
+        <label>Contraseña</label>
+        <input type="password" value="••••••••••••" autocomplete="current-password">
+        <div class="hint">Mínimo 12 caracteres, mayúsculas, números y símbolos. 5 intentos fallidos bloquean la cuenta por 15 min. <span class="rf owasp">OWASP A07</span></div>
+        <a href="#mfa" class="btn block">Continuar</a>
+      </div>
+
+      <div id="mfa">
+        <label>Código de verificación (MFA) enviado a la app Authenticator</label>
+        <div class="otp"><input value="4"><input value="8"><input value="1"><input value="0"><input value="7"><input value="2"></div>
+        <div class="hint">El código expira en 00:45 · <a style="color:var(--brand)">Reenviar</a></div>
+        <a href="#dashboard" class="btn block">Verificar e ingresar</a>
+        <a href="#login" class="hint" style="display:block;text-align:center;margin-top:10px">← Volver</a>
+      </div>
+
+      <div class="legal">
+        <b>Aviso legal:</b> Acceso restringido a personal autorizado. Todas las acciones quedan registradas. El acceso indebido, la interceptación o la alteración de datos constituyen delito según la <b>Ley 21.459 de Delitos Informáticos</b> (Chile) y la <b>Ley de Ciberdelitos de Omán (R.D. 12/2011)</b>. Los datos personales se tratan conforme a la normativa de protección de datos vigente.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= APP ================= -->
+<section id="app">
+  <aside>
+    <div class="logo"><div class="mark">O</div> Omantel ERP</div>
+    <nav class="nav">
+      <div class="nav-sec">Proyecto</div>
+      <a href="#dashboard"><span class="ico">▦</span> Panel del proyecto</a>
+      <a href="#migracion"><span class="ico">⇄</span> Migración de clientes</a>
+      <a href="#cambios"><span class="ico">✎</span> Control de cambios</a>
+      <a href="#capacitacion"><span class="ico">🎓</span> Capacitación</a>
+      <div class="nav-sec">Operación</div>
+      <a href="#facturacion"><span class="ico">$</span> Facturación</a>
+      <a href="#seguridad"><span class="ico">🛡</span> Seguridad y auditoría</a>
+    </nav>
+    <div class="side-foot">Oracle EBS R12 · Oracle Cloud Infrastructure<br>Entorno: <b style="color:#fff">PRODUCCIÓN</b></div>
+  </aside>
+  <main>
+    <div class="topbar">
+      <div class="crumb">Omantel ERP / <b><span class="c c-dashboard">Panel del proyecto</span><span class="c c-migracion">Migración de clientes</span><span class="c c-cambios">Control de cambios</span><span class="c c-capacitacion">Capacitación</span><span class="c c-facturacion">Facturación</span><span class="c c-seguridad">Seguridad y auditoría</span></b></div>
+      <div class="top-right">
+        <label class="toggle-notes"><input type="checkbox" id="notes" checked> Mostrar RF</label>
+        <div class="search">🔍 Buscar cliente, orden, solicitud…</div>
+        <span class="session" title="Cierre automático por inactividad">⏱ Sesión: 14:52</span>
+        <div class="user"><div class="avatar">MA</div><div>M. Al-Harthy<br><small>Jefe de Proyecto ERP</small></div></div>
+        <a href="#login" class="btn ghost sm">Salir</a>
+      </div>
+    </div>
+
+    <div class="content">
+
+    <!-- ---------- DASHBOARD (RF-02) ---------- -->
+    <div class="view" id="dashboard">
+      <div class="page-head">
+        <div><h2>Panel del proyecto ERP <span class="rf">RF-02</span></h2>
+        <p>Estado general de la implementación Oracle · Plan de 12 meses · Mes 9 de 12</p></div>
+        <div style="display:flex;gap:8px"><button class="btn ghost">⤓ Exportar informe</button><button class="btn">+ Nueva solicitud</button></div>
+      </div>
+      <div class="grid g4">
+        <div class="card kpi"><div class="label">Avance global</div><div class="val">72%</div><div class="bar"><i style="width:72%"></i></div><div class="delta up" style="margin-top:6px">▲ 6% este mes</div></div>
+        <div class="card kpi"><div class="label">Clientes migrados</div><div class="val">184.320</div><div class="delta">de 256.000 · <span class="up">72%</span></div></div>
+        <div class="card kpi"><div class="label">Personal capacitado</div><div class="val">68%</div><div class="delta down">▼ Meta antes del go-live: 100%</div></div>
+        <div class="card kpi"><div class="label">Cambios pendientes</div><div class="val">14</div><div class="delta"><span class="pill p-bad">3 críticos</span></div></div>
+      </div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="card">
+          <h3>Hitos del proyecto <span class="pill p-info">Tabla II del caso</span></h3>
+          <ul class="timeline">
+            <li><i class="dot done"></i><div><div class="t">Definición del tablero del proyecto</div><div class="s">Criterios de éxito definidos</div></div><div class="d">Mes 1</div></li>
+            <li><i class="dot done"></i><div><div class="t">Procedimientos base y plan de reversión</div><div class="s">Comunicaciones y back-out probados</div></div><div class="d">Mes 2</div></li>
+            <li><i class="dot done"></i><div><div class="t">Compatibilidad de equipos en cliente</div><div class="s">Planes de prueba con interesados</div></div><div class="d">Mes 4</div></li>
+            <li><i class="dot done"></i><div><div class="t">Casos de migración y cronograma emitidos</div><div class="s">Revisados y aprobados por interesados</div></div><div class="d">Mes 6</div></li>
+            <li><i class="dot now"></i><div><div class="t">Pruebas de compatibilidad de red y productos</div><div class="s">87 de 112 productos verificados</div></div><div class="d">En curso</div></li>
+            <li><i class="dot"></i><div><div class="t">Todos los clientes migrados</div><div class="s">Pendiente</div></div><div class="d">—</div></li>
+            <li><i class="dot"></i><div><div class="t">Puesta en marcha (Go-live) y revisión post-implementación</div><div class="s">Pendiente</div></div><div class="d">—</div></li>
+          </ul>
+        </div>
+        <div class="card">
+          <h3>Estado de sistemas críticos</h3>
+          <table>
+            <tr><th>Sistema</th><th>Disponibilidad</th><th>Estado</th></tr>
+            <tr><td>Facturación (Billing)</td><td>99,97%</td><td><span class="pill p-ok">Operativo</span></td></tr>
+            <tr><td>Oracle Financials (GL/AP/AR)</td><td>99,95%</td><td><span class="pill p-ok">Operativo</span></td></tr>
+            <tr><td>CRM / Atención clientes</td><td>99,80%</td><td><span class="pill p-ok">Operativo</span></td></tr>
+            <tr><td>Compras e Inventario</td><td>99,90%</td><td><span class="pill p-ok">Operativo</span></td></tr>
+            <tr><td>Integración heredados (prepago Al-Ufuq)</td><td>97,40%</td><td><span class="pill p-warn">Degradado</span></td></tr>
+            <tr><td>Base de datos Oracle (RAC)</td><td>99,99%</td><td><span class="pill p-ok">Operativo</span></td></tr>
+          </table>
+          <div class="alert warn" style="margin:14px 0 0"><b>⚠</b><div>Latencia alta en la interfaz con el sistema heredado de prepago. Ticket <span class="mono">INC-2291</span> asignado al equipo de Redes y Sistemas.</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- MIGRACIÓN (RF-03, RF-04) ---------- -->
+    <div class="view" id="migracion">
+      <div class="page-head">
+        <div><h2>Migración de clientes <span class="rf">RF-03</span><span class="rf">RF-04</span></h2>
+        <p>Traspaso de clientes desde sistemas heredados a Oracle con notificación previa y plan de reversión</p></div>
+        <div style="display:flex;gap:8px"><button class="btn ghost">⤓ Descargar lote</button><a href="#modal" class="btn">▶ Programar migración</a></div>
+      </div>
+      <div class="alert info"><b>ℹ</b><div>Período de congelamiento activo del <b>25 al 28</b> por ciclo de facturación mensual: no se permiten migraciones en esas fechas (solicitado por los clientes durante la consulta a interesados).</div></div>
+      <div class="grid g2">
+        <div class="card">
+          <h3>Lotes de migración</h3>
+          <div class="filters">
+            <select><option>Segmento: Todos</option><option>Corporativo</option><option>Gobierno</option><option>Residencial</option></select>
+            <select><option>Estado: Todos</option></select>
+            <input placeholder="Buscar lote o cliente">
+          </div>
+          <table>
+            <tr><th>Lote</th><th>Segmento</th><th>Clientes</th><th>Fecha</th><th>Estado</th><th></th></tr>
+            <tr><td class="mono">MIG-0412</td><td>Gobierno</td><td>1.240</td><td>12-11</td><td><span class="pill p-ok">Completado</span></td><td><button class="btn ghost sm">Ver</button></td></tr>
+            <tr><td class="mono">MIG-0413</td><td>Corporativo</td><td>3.870</td><td>14-11</td><td><span class="pill p-info">En proceso 64%</span></td><td><button class="btn ghost sm">Ver</button></td></tr>
+            <tr><td class="mono">MIG-0414</td><td>Residencial</td><td>25.000</td><td>18-11</td><td><span class="pill p-gray">Programado</span></td><td><button class="btn ghost sm">Editar</button></td></tr>
+            <tr><td class="mono">MIG-0409</td><td>Corporativo</td><td>2.115</td><td>08-11</td><td><span class="pill p-bad">Revertido</span></td><td><button class="btn ghost sm">Log</button></td></tr>
+            <tr><td class="mono">MIG-0415</td><td>Móvil (Oman Mobile)</td><td>40.000</td><td>20-11</td><td><span class="pill p-warn">Pend. aprobación</span></td><td><button class="btn ghost sm">Aprobar</button></td></tr>
+          </table>
+          <h3 style="margin-top:20px">Lote MIG-0413 · flujo</h3>
+          <div class="steps"><div class="ok">Validación datos</div><div class="ok">Notificación cliente</div><div class="ok">Respaldo</div><div class="cur">Carga en Oracle</div><div>Pruebas UAT</div><div>Cierre</div></div>
+        </div>
+        <div class="card">
+          <h3>Calendario noviembre</h3>
+          <div class="cal"><div class="h">L</div><div class="h">M</div><div class="h">M</div><div class="h">J</div><div class="h">V</div><div class="h">S</div><div class="h">D</div><div style="background:none"></div><div style="background:none"></div><div style="background:none"></div><div style="background:none"></div><div style="background:none"></div><div>1</div><div>2</div><div>3</div><div>4</div><div>5</div><div>6</div><div>7</div><div class="mg">8</div><div>9</div><div>10</div><div>11</div><div class="mg">12</div><div>13</div><div class="mg">14</div><div>15</div><div>16</div><div>17</div><div class="mg">18</div><div>19</div><div class="mg">20</div><div>21</div><div>22</div><div>23</div><div>24</div><div class="fz">25</div><div class="fz">26</div><div class="fz">27</div><div class="fz">28</div><div>29</div><div>30</div></div>
+          <div class="legend"><span><i style="background:#e3f5ec"></i>Migración programada</span><span><i style="background:#fde8e6"></i>Congelamiento (facturación)</span></div>
+          <h3 style="margin-top:22px">Plan de reversión (back-out)</h3>
+          <p style="color:var(--muted);font-size:13px;margin:0 0 10px">Si una migración falla, los clientes vuelven al sistema heredado sin pérdida de servicio.</p>
+          <table>
+            <tr><td>Respaldo previo verificado</td><td><span class="pill p-ok">Sí</span></td></tr>
+            <tr><td>Tiempo máximo de reversión</td><td>2 h</td></tr>
+            <tr><td>Responsable</td><td>Equipo Migración y Aseguramiento</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- CAMBIOS (RF-05) ---------- -->
+    <div class="view" id="cambios">
+      <div class="page-head">
+        <div><h2>Control de cambios <span class="rf">RF-05</span></h2>
+        <p>Solicitudes que afectan alcance, secuencia o calendario del plan. Toda personalización requiere firma de Oracle.</p></div>
+        <button class="btn">+ Nueva solicitud de cambio</button>
+      </div>
+      <div class="grid g2">
+        <div class="card">
+          <div class="filters"><select><option>Prioridad: Todas</option></select><select><option>Área: Todas</option></select><input placeholder="Buscar SC-…"></div>
+          <table>
+            <tr><th>ID</th><th>Descripción</th><th>Solicitante</th><th>Prioridad</th><th>Estado</th></tr>
+            <tr><td class="mono">SC-118</td><td>Mover migración Gobierno fuera de cierre fiscal</td><td>TRA (regulador)</td><td><span class="pill p-bad">Crítica</span></td><td><span class="pill p-warn">En revisión</span></td></tr>
+            <tr><td class="mono">SC-117</td><td>Nuevo reporte de facturación en árabe</td><td>Finanzas</td><td><span class="pill p-warn">Media</span></td><td><span class="pill p-info">Aprobada</span></td></tr>
+            <tr><td class="mono">SC-116</td><td>Interfaz con facturación móvil heredada</td><td>Oman Mobile</td><td><span class="pill p-bad">Crítica</span></td><td><span class="pill p-warn">Pend. firma Oracle</span></td></tr>
+            <tr><td class="mono">SC-115</td><td>Ampliar plazo de pruebas de interoperabilidad</td><td>Clientes corporativos</td><td><span class="pill p-bad">Crítica</span></td><td><span class="pill p-ok">Implementada</span></td></tr>
+            <tr><td class="mono">SC-114</td><td>Cambio de campo en ficha de cliente</td><td>Atención clientes</td><td><span class="pill p-gray">Baja</span></td><td><span class="pill p-gray">Rechazada</span></td></tr>
+          </table>
+        </div>
+        <div class="card">
+          <h3>Detalle SC-118</h3>
+          <label>Impacto evaluado</label>
+          <div style="display:flex;gap:6px;flex-wrap:wrap"><span class="pill p-bad">Calendario +2 semanas</span><span class="pill p-warn">Clientes Gobierno</span><span class="pill p-info">Obligación regulatoria</span></div>
+          <label>Justificación</label>
+          <textarea rows="3">Evitar interrupciones durante el cierre fiscal y cumplir obligaciones contractuales con entidades públicas.</textarea>
+          <label>Flujo de aprobación</label>
+          <div class="steps"><div class="ok">Registro</div><div class="ok">Análisis impacto</div><div class="cur">Comité de cambios</div><div>Firma Oracle</div><div>Publicación plan</div></div>
+          <div style="display:flex;gap:8px;margin-top:16px"><button class="btn">✓ Aprobar</button><button class="btn danger">✕ Rechazar</button><button class="btn ghost">Solicitar info</button></div>
+          <div class="hint" style="margin-top:12px">El plan actualizado se publica mensualmente a todas las partes interesadas.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ---------- CAPACITACIÓN (RF-06) ---------- -->
+    <div class="view" id="capacitacion">
+      <div class="page-head">
+        <div><h2>Capacitación de usuarios <span class="rf">RF-06</span></h2>
+        <p>Seguimiento para que el 100% del personal esté capacitado antes de la puesta en marcha</p></div>
+        <button class="btn">+ Programar curso</button>
+      </div>
+      <div class="grid g3">
+        <div class="card" style="text-align:center"><h3>Cobertura total</h3><div class="donut"><span>68%<br><small>capacitados</small></span></div>
+          <div class="legend" style="justify-content:center"><span><i style="background:var(--ok)"></i>Completo</span><span><i style="background:var(--warn)"></i>En curso</span><span><i style="background:var(--bad)"></i>Sin iniciar</span></div></div>
+        <div class="card" style="grid-column:span 2">
+          <h3>Avance por área</h3>
+          <table>
+            <tr><th>Área</th><th>Usuarios</th><th>Avance</th><th></th><th>Práctica en sandbox</th></tr>
+            <tr><td>Finanzas</td><td>180</td><td style="width:35%"><div class="bar"><i style="width:91%"></i></div></td><td>91%</td><td><span class="pill p-ok">Activa</span></td></tr>
+            <tr><td>Facturación</td><td>240</td><td><div class="bar"><i style="width:78%"></i></div></td><td>78%</td><td><span class="pill p-ok">Activa</span></td></tr>
+            <tr><td>Atención a clientes</td><td>620</td><td><div class="bar"><i style="width:55%;background:var(--warn)"></i></div></td><td>55%</td><td><span class="pill p-warn">Parcial</span></td></tr>
+            <tr><td>Compras e Inventario</td><td>150</td><td><div class="bar"><i style="width:62%;background:var(--warn)"></i></div></td><td>62%</td><td><span class="pill p-ok">Activa</span></td></tr>
+            <tr><td>TI / Sistemas</td><td>95</td><td><div class="bar"><i style="width:40%;background:var(--bad)"></i></div></td><td>40%</td><td><span class="pill p-bad">Sin acceso</span></td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <h3>Próximos cursos</h3>
+        <table>
+          <tr><th>Curso</th><th>Modalidad</th><th>Fecha</th><th>Cupos</th><th>Instructor</th><th></th></tr>
+          <tr><td>Oracle Financials – Cuentas por cobrar</td><td>Presencial</td><td>18-11</td><td>12/20</td><td>Usuario experto interno</td><td><button class="btn ghost sm">Inscribir</button></td></tr>
+          <tr><td>SQL y reportes Oracle (con práctica inmediata)</td><td>Virtual</td><td>19-11</td><td>25/30</td><td>Consultor Oracle</td><td><button class="btn ghost sm">Inscribir</button></td></tr>
+          <tr><td>Seguridad de la información y Ley 21.459</td><td>E-learning</td><td>Permanente</td><td>—</td><td>Ciberseguridad</td><td><button class="btn ghost sm">Inscribir</button></td></tr>
+        </table>
+      </div>
+    </div>
+
+    <!-- ---------- FACTURACIÓN (RF-07) ---------- -->
+    <div class="view" id="facturacion">
+      <div class="page-head">
+        <div><h2>Facturación de clientes <span class="rf">RF-07</span></h2>
+        <p>Consulta de cuentas y facturas integradas en Oracle Receivables</p></div>
+        <button class="btn ghost">⤓ Exportar</button>
+      </div>
+      <div class="grid g4">
+        <div class="card kpi"><div class="label">Facturado (mes)</div><div class="val">OMR 6,8 M</div><div class="delta up">▲ 3,1%</div></div>
+        <div class="card kpi"><div class="label">Facturas emitidas</div><div class="val">241.880</div></div>
+        <div class="card kpi"><div class="label">Errores de facturación</div><div class="val">0,04%</div><div class="delta up">▼ vs 1,2% en heredado</div></div>
+        <div class="card kpi"><div class="label">Próximo ciclo</div><div class="val">25-11</div><div class="delta"><span class="pill p-bad">Congelamiento</span></div></div>
+      </div>
+      <div class="card" style="margin-top:16px">
+        <div class="filters"><input placeholder="N° de cuenta" value="ACC-77****21"><select><option>Últimos 6 meses</option></select><button class="btn sm">Buscar</button></div>
+        <table>
+          <tr><th>Factura</th><th>Cliente</th><th>Servicio</th><th>Monto</th><th>Vencimiento</th><th>Estado</th></tr>
+          <tr><td class="mono">F-2025-118734</td><td>Ministerio de Salud</td><td>Enlace dedicado 1 Gbps</td><td>OMR 4.250</td><td>30-11</td><td><span class="pill p-info">Emitida</span></td></tr>
+          <tr><td class="mono">F-2025-118201</td><td>Ministerio de Salud</td><td>Telefonía fija (240 líneas)</td><td>OMR 1.980</td><td>30-10</td><td><span class="pill p-ok">Pagada</span></td></tr>
+          <tr><td class="mono">F-2025-117650</td><td>Ministerio de Salud</td><td>Internet empresas</td><td>OMR 860</td><td>30-09</td><td><span class="pill p-ok">Pagada</span></td></tr>
+        </table>
+        <div class="hint">Datos sensibles enmascarados según rol del usuario (mínimo privilegio).</div>
+      </div>
+    </div>
+
+    <!-- ---------- SEGURIDAD (RF-08, RF-09) ---------- -->
+    <div class="view" id="seguridad">
+      <div class="page-head">
+        <div><h2>Seguridad y auditoría <span class="rf">RF-08</span><span class="rf">RF-09</span></h2>
+        <p>Roles y permisos (RBAC) y registro inalterable de acciones</p></div>
+        <button class="btn ghost">⤓ Exportar log firmado</button>
+      </div>
+      <div class="grid g2">
+        <div class="card">
+          <h3>Registro de auditoría <span class="rf owasp">OWASP A09</span></h3>
+          <div class="filters"><select><option>Evento: Todos</option></select><select><option>Últimas 24 h</option></select></div>
+          <table>
+            <tr><th>Fecha / hora</th><th>Usuario</th><th>Acción</th><th>IP</th><th>Resultado</th></tr>
+            <tr><td class="mono">14-11 09:42:10</td><td>m.alharthy</td><td>Aprobó lote MIG-0412</td><td class="mono">10.20.4.18</td><td><span class="pill p-ok">OK</span></td></tr>
+            <tr><td class="mono">14-11 09:31:55</td><td>s.albalushi</td><td>Exportó facturas (Gobierno)</td><td class="mono">10.20.7.33</td><td><span class="pill p-ok">OK</span></td></tr>
+            <tr><td class="mono">14-11 08:15:03</td><td>desconocido</td><td>5 intentos fallidos de login</td><td class="mono">185.22.x.x</td><td><span class="pill p-bad">Bloqueado</span></td></tr>
+            <tr><td class="mono">14-11 08:02:47</td><td>k.alrawahi</td><td>Intentó modificar tabla de tarifas</td><td class="mono">10.20.2.9</td><td><span class="pill p-bad">Denegado</span></td></tr>
+            <tr><td class="mono">13-11 18:20:11</td><td>sistema</td><td>Respaldo cifrado BD completado</td><td class="mono">—</td><td><span class="pill p-ok">OK</span></td></tr>
+          </table>
+          <div class="alert warn" style="margin:14px 0 0"><b>⚠</b><div>Posible acceso no autorizado desde IP externa. Se notificó al equipo de ciberseguridad (CSIRT) para evaluar denuncia según Ley 21.459.</div></div>
+        </div>
+        <div class="card">
+          <h3>Matriz de roles <span class="rf owasp">OWASP A01</span></h3>
+          <table>
+            <tr><th>Rol</th><th>Migrar</th><th>Aprobar</th><th>Facturas</th><th>Admin</th></tr>
+            <tr><td>Jefe de Proyecto</td><td>✓</td><td>✓</td><td>👁</td><td>—</td></tr>
+            <tr><td>Analista de migración</td><td>✓</td><td>—</td><td>—</td><td>—</td></tr>
+            <tr><td>Finanzas</td><td>—</td><td>—</td><td>✓</td><td>—</td></tr>
+            <tr><td>Atención clientes</td><td>—</td><td>—</td><td>👁*</td><td>—</td></tr>
+            <tr><td>Consultor Oracle</td><td>👁</td><td>—</td><td>—</td><td>Temporal</td></tr>
+            <tr><td>Administrador TI</td><td>—</td><td>—</td><td>—</td><td>✓</td></tr>
+          </table>
+          <div class="hint">✓ escritura · 👁 solo lectura · * datos enmascarados · Accesos de terceros con expiración.</div>
+          <h3 style="margin-top:18px">Controles activos</h3>
+          <table>
+            <tr><td>MFA obligatorio</td><td><span class="pill p-ok">Activo</span></td></tr>
+            <tr><td>Cifrado TLS 1.3 / datos en reposo (TDE)</td><td><span class="pill p-ok">Activo</span></td></tr>
+            <tr><td>Consultas parametrizadas (anti SQLi)</td><td><span class="pill p-ok">Activo</span></td></tr>
+            <tr><td>Cierre de sesión por inactividad (15 min)</td><td><span class="pill p-ok">Activo</span></td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </main>
+</section>
+
+<!-- Modal programar migración -->
+<div class="modal-back" id="modal">
+  <div class="modal">
+    <h3>Programar migración de lote <span class="rf">RF-03</span></h3>
+    <p style="color:var(--muted);margin:0 0 6px;font-size:13px">El sistema valida que la fecha no caiga en período de congelamiento.</p>
+    <div class="form-row">
+      <div><label>Segmento</label><select><option>Corporativo</option></select></div>
+      <div><label>N° de clientes</label><input value="5.000"></div>
+    </div>
+    <div class="form-row">
+      <div><label>Fecha</label><input value="26-11-2025" style="border-color:var(--bad)"></div>
+      <div><label>Ventana horaria</label><select><option>02:00 – 05:00</option></select></div>
+    </div>
+    <div class="alert warn" style="margin-top:14px"><b>✕</b><div>La fecha 26-11 está dentro del período de congelamiento por facturación (25–28). Elija otra fecha.</div></div>
+    <label><input type="checkbox" checked style="width:auto"> Enviar notificación anticipada a clientes (72 h) <span class="rf">RF-04</span></label>
+    <label><input type="checkbox" checked style="width:auto"> Generar respaldo y plan de reversión automático</label>
+    <div style="display:flex;justify-content:flex-end;gap:8px;margin-top:16px"><a href="#migracion" class="btn ghost">Cancelar</a><button class="btn" disabled style="opacity:.5">Confirmar</button></div>
+  </div>
+</div>
+
+</body>
+</html>
